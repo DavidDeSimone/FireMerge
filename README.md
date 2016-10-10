@@ -8,6 +8,7 @@ On Linux or Mac
 
 ```
 git clone https://github.com/DavidDeSimone/FireMerge
+cd FireMerge/
 mkdir build && cd build/
 cmake ..
 make
