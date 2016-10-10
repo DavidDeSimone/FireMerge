@@ -33,10 +33,11 @@ constexpr int CONFLICT = 1;
 int main(int argc, char ** args) {
   std::cout << "Running FireMerge..." << std::endl;
 
-  if (argc != 4) {
-    std::cout << "Merge tool being used improperly, \
-	please see https://www.mercurial-scm.org/wiki/MergeToolConfiguration" << std::endl;
-    return 0;
+  std::string resultName;
+  if (argc == 4) {
+    resultName = args[1];
+  } else if (argc == 5) {
+    resultName = args[4];
   }
 
   int returnCode = NO_CONFLICT;
@@ -99,7 +100,7 @@ int main(int argc, char ** args) {
 
   // Now we need to restore indexes for the result object
   result.convertIDsToIndex();
-  writeJSON(result.jsonObject.dump(4), args[1]);
+  writeJSON(result.jsonObject.dump(4), resultName);
 
   return returnCode;
 }
