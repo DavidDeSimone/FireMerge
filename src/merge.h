@@ -23,25 +23,25 @@ DEALINGS IN THE SOFTWARE.
 #include "json.hpp"
 
 class FileRevision {
- public:
-  FileRevision(const std::string& fileName);
-  FileRevision() = default;
+	public:
+		FileRevision(const std::string& fileName);
+		FileRevision() = default;
 
-  std::string getID(const nlohmann::json& node) const;
+		std::string getID(const nlohmann::json& node) const;
 
-  void convertIDsToIndex();
-  void mapIndexToIDs();
-  void mapIDToIndex(std::string&& id);
+		void convertIDsToIndex();
+		void mapIndexToIDs();
+		void mapIDToIndex(std::string&& id);
 
-  nlohmann::json getNode(const std::string& ID);
-  nlohmann::json jsonObject;
+		nlohmann::json getNode(const std::string& ID);
+		nlohmann::json jsonObject;
 
- private:
-  void convertIDToIndex(nlohmann::json& node);
-  void convertIndexToID(nlohmann::json& node);
+	private:
+		void convertIDToIndex(nlohmann::json& node);
+		void convertIndexToID(nlohmann::json& node);
 
-  std::unordered_map<int, std::string> jsonIndexMap;
-  std::unordered_map<std::string, int> jsonIDMap;
+		std::unordered_map<int, std::string> jsonIndexMap;
+		std::unordered_map<std::string, int> jsonIDMap;
 };
 
 nlohmann::json readJSON(const std::string& fileName);
