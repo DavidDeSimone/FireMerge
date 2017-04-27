@@ -153,6 +153,8 @@ std::string FileRevision::getID(const json& node) const {
 			type = "target";
 		} else if (node.count("data")) {
 			type = "data";
+		} else if (node.count("customDataOverride")) {
+			type = "customDataOverride";
 		}
 
 		if (type.length()) {
@@ -253,3 +255,4 @@ void FileRevision::convertIDToIndex(json& node) {
 		}	
 	}
 }
+
